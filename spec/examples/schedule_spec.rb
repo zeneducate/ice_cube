@@ -339,7 +339,7 @@ describe IceCube::Schedule do
       schedule2 = IceCube::Schedule.new(start_time2, :duration => IceCube::ONE_HOUR)
       schedule2.rrule IceCube::Rule.daily
       conflict = schedule1.conflicts_with?(schedule2, start_time + IceCube::ONE_WEEK)
-      conflict.should be_false
+      conflict.should be_falsey
     end
 
     it 'should give precedence to rule duration for checking conflicts, positive case' do
@@ -350,7 +350,7 @@ describe IceCube::Schedule do
       schedule2 = IceCube::Schedule.new(start_time2, :duration => IceCube::ONE_HOUR)
       schedule2.rrule IceCube::Rule.daily
       conflict = schedule1.conflicts_with?(schedule2, start_time + IceCube::ONE_WEEK)
-      conflict.should be_true
+      conflict.should be_truthy
     end
   end
 

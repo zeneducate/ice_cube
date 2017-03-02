@@ -87,31 +87,31 @@ describe :occurring_between? do
     end
 
     it 'should affirm an occurrence that spans the range exactly' do
-      schedule.occurring_between?(start_time, end_time).should be_true
+      schedule.occurring_between?(start_time, end_time).should be_truthy
     end
 
     it 'should affirm an occurrence entirely contained within the range' do
-      schedule.occurring_between?(start_time + 1, end_time - 1).should be_true
+      schedule.occurring_between?(start_time + 1, end_time - 1).should be_truthy
     end
 
     it 'should affirm an occurrence spanning across the start of the range' do
-      schedule.occurring_between?(start_time - 1, start_time + 1).should be_true
+      schedule.occurring_between?(start_time - 1, start_time + 1).should be_truthy
     end
 
     it 'should affirm an occurrence spanning across the end of the range' do
-      schedule.occurring_between?(end_time - 1, end_time + 1).should be_true
+      schedule.occurring_between?(end_time - 1, end_time + 1).should be_truthy
     end
 
     it 'should affirm an occurrence spanning across the range entirely' do
-      schedule.occurring_between?(start_time - 1, end_time + 1).should be_true
+      schedule.occurring_between?(start_time - 1, end_time + 1).should be_truthy
     end
 
     it 'should deny an occurrence before the range' do
-      schedule.occurring_between?(end_time + 1, end_time + 2).should be_false
+      schedule.occurring_between?(end_time + 1, end_time + 2).should be_falsey
     end
 
     it 'should deny an occurrence after the range' do
-      schedule.occurring_between?(start_time - 2, start_time - 1).should be_false
+      schedule.occurring_between?(start_time - 2, start_time - 1).should be_falsey
     end
   end
 end
