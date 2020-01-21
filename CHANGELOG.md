@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.14.1 / 2020-01-21
+
+* Switch deprecated Fixnum for Integer class (Ruby 2.4+)
+
 ## 0.14.0 / 2016-02-23
 
 * Added span option for occurrence methods
