@@ -6,8 +6,8 @@ module IceCube
 
     def day(*days)
       days.flatten.each do |day|
-        unless day.is_a?(Fixnum) || day.is_a?(Symbol)
-          raise ArgumentError, "expecting Fixnum or Symbol value for day, got #{day.inspect}"
+        unless day.is_a?(Integer) || day.is_a?(Symbol)
+          raise ArgumentError, "expecting Integer or Symbol value for day, got #{day.inspect}"
         end
         day = TimeUtil.sym_to_wday(day)
         validations_for(:day) << Validation.new(day)
@@ -42,7 +42,7 @@ module IceCube
       end
 
       def build_ical(builder)
-        ical_day = IcalBuilder.fixnum_to_ical_day(day)
+        ical_day = IcalBuilder.integer_to_ical_day(day)
         # Only add if there aren't others from day_of_week that override
         if builder['BYDAY'].none? { |b| b.end_with?(ical_day) }
           builder['BYDAY'] << ical_day

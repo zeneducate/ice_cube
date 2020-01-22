@@ -8,7 +8,7 @@ module IceCube
       @hash = {}
     end
 
-    def self.fixnum_to_ical_day(num)
+    def self.integer_to_ical_day(num)
       ICAL_DAYS[num]
     end
 
